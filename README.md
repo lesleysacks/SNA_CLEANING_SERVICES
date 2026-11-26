@@ -13,6 +13,7 @@ Open index.html in your browser directly.
 - services.html
 - gallery.html
 - contact.html
+- privacy.html
 - css/style.css
 - css/responsive.css
 - css/animations.css

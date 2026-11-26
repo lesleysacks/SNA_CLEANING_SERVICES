@@ -21,6 +21,17 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .hero-media {
+    justify-self: start;
+    max-width: 380px;
+  }
+
   .gallery-item.large {
     grid-column: span 2;
   }
@@ -48,9 +59,13 @@
     display: flex;
   }
 
-  .hero-content,
-  .hero-subpage .page-hero {
-    min-height: auto;
+  .hero-badge {
+    left: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 100%;
   }
 
   .section {

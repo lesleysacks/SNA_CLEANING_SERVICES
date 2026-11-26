@@ -96,3 +96,22 @@ The Phase 1 quick wins above, plus real photos and copy from the company profile
 - Whether pressure washing is still offered.
 - Higher-resolution job photos. Two of the current photos are only about 250–350px wide.
 - The quote form sends requests through WhatsApp for now. It can be switched to a form service such as Formspree once there's an account.
+
+## Round 2 — hero redesign and extras (26 Nov 2026)
+
+**Done:**
+- **Split hero on Home.** Headline, quote and WhatsApp buttons, and a trust strip on the brand gradient, next to the real team photo. This replaces the blurry, dark, full-screen classroom photo (1072px stretched to full width, with a heavy overlay and a hazmat image that read as pest control).
+- **Compact subpage banners.** About 350–450px tall instead of 70% of the screen, with breadcrumbs and local headlines (e.g. "Cleaning services in Paarl & the Cape Winelands").
+- **POPIA privacy notice** under the quote form, plus a new `privacy.html` page. Have the client or an advisor review it.
+- **"Premium/luxury" wording removed** so the tone matches the company profile.
+- **Favicon** made from the SNA logo (`images/favicon-*.png`).
+
+**Still recommended:**
+1. A photo shoot: landscape shots at least 2000px wide, natural light, branded uniforms, before/after pairs from the same angle. Then use a different photo per page.
+2. A vector or transparent version of the logo. The current PNG sits as a blue box on the header.
+3. A "How it works" strip: Request a quote → Free site visit → We clean → Quality check.
+4. A Commercial & Government page: B-BBEE, CSD, insurance, and a compressed profile PDF to download.
+5. A Google Business Profile, a reviews link, and analytics that track WhatsApp and quote clicks.
+6. Individual service and area pages (Paarl, Wellington, Stellenbosch, Franschhoek), plus an FAQ.
+7. An optional Afrikaans version of the key pages.
+8. A shared header/footer template, hosting with HTTPS and form handling (Netlify or Cloudflare Pages), and a business email on the domain.
