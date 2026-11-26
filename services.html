@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore premium cleaning services from SNA Cleaning Services, including commercial, residential, deep cleaning, pressure washing, and more."
+      content="SNA Cleaning Services offers contract, office, commercial, residential, deep, window, carpet, upholstery, mattress and blinds cleaning, plus Sani-bins, in Paarl and the Western Cape."
     />
     <meta name="title" content="SNA Cleaning Services | Our Services" />
     <meta property="og:title" content="SNA Cleaning Services | Our Services" />
@@ -23,20 +23,18 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="page-loader" aria-hidden="true">
-      <div class="loader-ring"></div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="hero hero-subpage">
       <nav class="nav">
         <div class="container">
           <a class="logo" href="index.html"><img src="images/logos/1.png" alt="SNA Cleaning Services Logo" /></a>
-          <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
-          <ul class="nav-links">
+          <ul class="nav-links" id="site-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a class="active" href="services.html">Services</a></li>
@@ -53,40 +51,72 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section section-light">
         <div class="container service-page-grid reveal">
           <article class="service-card">
-            <h3>Commercial Cleaning</h3>
-            <p>Reliable daily or scheduled cleaning for offices, retail stores, and shared spaces.</p>
-          </article>
-          <article class="service-card">
-            <h3>Residential Cleaning</h3>
-            <p>Thoughtful and consistent house cleaning plans for modern households.</p>
+            <h3>Contract Cleaning</h3>
+            <p>Ongoing cleaning contracts for businesses, schools and government buildings, with supervised teams on a set schedule.</p>
           </article>
           <article class="service-card">
             <h3>Office Cleaning</h3>
-            <p>Professional presentation and hygiene for meeting rooms, kitchens, and work areas.</p>
+            <p>Clean, hygienic offices, meeting rooms, kitchens and bathrooms, daily, weekly or after hours.</p>
+          </article>
+          <article class="service-card">
+            <h3>Commercial Cleaning</h3>
+            <p>Reliable cleaning for retail stores, shared spaces and commercial premises.</p>
+          </article>
+          <article class="service-card">
+            <h3>Residential Cleaning</h3>
+            <p>House, flat and town-house cleaning plans that fit your routine.</p>
           </article>
           <article class="service-card">
             <h3>Deep Cleaning</h3>
-            <p>Comprehensive sanitisation for seasonal resets, events, and post-construction needs.</p>
+            <p>Thorough top-to-bottom cleaning and sanitising for seasonal refreshes, move-ins and move-outs.</p>
           </article>
           <article class="service-card">
             <h3>Window Cleaning</h3>
-            <p>Streak-free results for homes, shops, facades, and glass partitions.</p>
+            <p>Streak-free windows for homes, shops, offices and glass partitions.</p>
           </article>
           <article class="service-card">
             <h3>Carpet Cleaning</h3>
-            <p>Refresh and restore carpets with careful treatment and drying methods.</p>
+            <p>Refresh and restore carpets with careful treatment and drying.</p>
           </article>
           <article class="service-card">
-            <h3>Upholstery Cleaning</h3>
-            <p>Gentle care for furniture, lounges, and fabric finishes that need a lift.</p>
+            <h3>Lounge Suite &amp; Upholstery</h3>
+            <p>Gentle cleaning for couches, chairs and fabric furniture.</p>
+          </article>
+          <article class="service-card">
+            <h3>Mattress Cleaning</h3>
+            <p>Deep-cleaned, fresher mattresses for homes, guest houses and hostels.</p>
+          </article>
+          <article class="service-card">
+            <h3>Car Seat Cleaning</h3>
+            <p>Interior seat cleaning to lift stains and freshen up your vehicle.</p>
+          </article>
+          <article class="service-card">
+            <h3>Blinds Cleaning</h3>
+            <p>Dust and grime removed from all types of blinds.</p>
+          </article>
+          <article class="service-card">
+            <h3>Sign &amp; Logo Cleaning</h3>
+            <p>Keep your business signage and logos looking sharp.</p>
+          </article>
+          <article class="service-card">
+            <h3>Sani-Bins &amp; Hygiene</h3>
+            <p>Supply and maintenance of sanitary bins for your bathrooms.</p>
+          </article>
+          <article class="service-card">
+            <h3>Undercover Cleaning</h3>
+            <p>We clean while you're away and keep your home or premises secure.</p>
+          </article>
+          <article class="service-card">
+            <h3>Ad-Hoc &amp; After-Hours</h3>
+            <p>Once-off jobs, plus cleaning after hours, on Saturdays and on Sundays.</p>
           </article>
           <article class="service-card">
             <h3>Pressure Washing</h3>
-            <p>Exterior cleaning for patios, walls, walkways, and building facades.</p>
+            <p>Exterior cleaning for patios, walls, walkways and building facades.</p>
           </article>
         </div>
       </section>
@@ -106,7 +136,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a class="logo" href="index.html"></a>
+          <a class="logo" href="index.html"><img src="images/logos/1.png" alt="SNA Cleaning Services Logo" /></a>
           <p>Professional cleaning services with a signature level of care and consistency.</p>
         </div>
         <div>
@@ -121,25 +151,32 @@
         <div>
           <h3>Services</h3>
           <ul class="footer-links">
+            <li>Contract &amp; Office Cleaning</li>
             <li>Commercial Cleaning</li>
             <li>Residential Cleaning</li>
+            <li>Deep Cleaning</li>
             <li>Window Cleaning</li>
-            <li>Pressure Washing</li>
+            <li>Carpet &amp; Upholstery Cleaning</li>
           </ul>
         </div>
         <div>
           <h3>Contact</h3>
           <ul class="footer-links">
-            <li><a href="https://wa.me/27738449868">073 844 9868(WhatsApp)</a></li>
+            <li><a href="https://wa.me/27738449868">073 844 9868 (WhatsApp)</a></li>
             <li><a href="mailto:andremuller093@gmail.com">andremuller093@gmail.com</a></li>
             <li>No. 06 Millree Court, Lady Grey Street, Paarl, Western Cape, South Africa</li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© 2026 SNA Cleaning Services. All rights reserved.</p>
+        <p>© <span class="current-year">2026</span> SNA Cleaning Services. All rights reserved.</p>
       </div>
     </footer>
+
+    <nav class="mobile-cta" aria-label="Quick contact">
+      <a class="whatsapp" href="https://wa.me/27738449868">WhatsApp us</a>
+      <a href="tel:+27738449868">Call now</a>
+    </nav>
 
     <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 

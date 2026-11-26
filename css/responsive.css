@@ -83,7 +83,18 @@
     grid-template-columns: 1fr;
   }
 
+  /* No arrows on mobile, so show every testimonial stacked */
   .slider-btn {
     display: none;
+  }
+
+  .testimonial-track {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .testimonial-card {
+    display: block;
   }
 }

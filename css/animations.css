@@ -14,3 +14,17 @@
 .reveal.visible {
   animation: fadeUp 0.75s ease both;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal,
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

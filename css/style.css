@@ -56,7 +56,7 @@ textarea {
 .hero {
   min-height: 100vh;
   background: linear-gradient(120deg, rgba(8, 28, 45, 0.9), rgba(8, 28, 45, 0.68)),
-    url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=80') center/cover;
+    url('../images/work/classroom-sanitising.jpg') center/cover;
   color: white;
   position: relative;
   overflow: hidden;
@@ -317,10 +317,18 @@ h3 {
 .why-card p,
 .value-card p,
 .contact-card li,
-.contact-card p,
+.contact-card p {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Text on dark backgrounds must stay light */
+.section-dark .service-card p,
+.section-dark .why-card p,
+.section-dark .value-card p,
+.section-dark .value-card li,
 .site-footer p,
 .site-footer li {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .about-grid h2 {
@@ -614,7 +622,7 @@ h3 {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -664,7 +672,7 @@ h3 {
   font-size: 1.3rem;
 }
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -675,31 +683,139 @@ h3 {
   transform: translateY(0);
 }
 
-.page-loader {
-  position: fixed;
-  inset: 0;
-  background: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+
+/* ---------- Phase 1 additions ---------- */
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
   z-index: 100;
-  transition: opacity 0.35s ease;
+  background: var(--accent);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
 }
 
-.page-loader.hidden {
-  opacity: 0;
-  pointer-events: none;
+.skip-link:focus {
+  top: 1rem;
 }
 
-.loader-ring {
-  width: 3rem;
-  height: 3rem;
-  border: 3px solid rgba(255,255,255,0.16);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 0.9s linear infinite;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.gallery-item:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.map-container {
+  margin-top: 1.5rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border: 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: rgba(8, 28, 45, 0.7);
+}
+
+.form-note a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.form-status {
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.trust-note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  background: var(--light-grey);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--primary);
+}
+
+.value-card ul {
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.gallery-item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(transparent, rgba(8, 28, 45, 0.85));
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.gallery-item {
+  position: relative;
+}
+
+.mobile-cta {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--primary);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-cta a {
+    padding: 0.95rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+  }
+
+  .mobile-cta a.whatsapp {
+    background: #1f9d55;
+  }
+
+  body {
+    padding-bottom: 3.4rem;
+  }
+
+  .back-to-top {
+    bottom: 4.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }

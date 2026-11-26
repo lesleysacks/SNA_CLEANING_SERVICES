@@ -12,6 +12,7 @@
 |---|-------|-------|--------|-----|
 | C1 | **Quote form doesn't send anything.** No `action` or backend. The submit button wraps an `<a href="mailto:…">` and an orphan `</li>`, which is invalid HTML. | `contact.html` (form + submit button) | Every enquiry typed into the form is lost. This is the site's main conversion point. | Hook the form up to a form service (Formspree, Netlify Forms, Web3Forms), or send it as a prefilled WhatsApp message. Add a success/error state and a plain "Send request" button. |
 | C2 | **Footer text is invisible.** `.site-footer p, .site-footer li` is `rgba(0,0,0,0.8)` (black) on the navy footer. | `css/style.css:321-324` | The tagline and © line can't be read on any page, and it looks broken. | Set the colour to `rgba(255,255,255,0.75)`. |
+| C2b | **Card descriptions are invisible on dark sections.** The same rule colours `.why-card p` and `.value-card p` black, and those cards sit on the navy sections ("Why clients choose SNA" on Home, "Core values" on About). | `css/style.css` (same rule as C2) | Visitors only see the headings, not the selling points under them. | Give text on dark sections a light colour. |
 | C3 | **Content stays hidden until the visitor scrolls.** `.reveal { opacity: 0 }` is only cleared by a scroll handler. In testing, nothing marked `.reveal` was visible on first load, including the section right under the hero. | `css/style.css:667`, `js/main.js` | Blank-looking pages on load, in print and on slow or JS-failing phones. Some crawlers and preview tools see empty sections. | Use `IntersectionObserver`, show content by default (only hide it once JS has added a `js` class), and respect `prefers-reduced-motion`. |
 | C4 | **Contact page scrolls sideways on phones.** The map iframe has a fixed `width="600"`. | `contact.html` map | The page is 682px wide on a 390px phone. | Set the iframe to `width:100%` with an aspect-ratio wrapper. |
 | C5 | **Map pins the wrong address.** The embed points to "70 Lady Grey St, Lemoenkloof". The business is at No. 06 Millree Court, Lady Grey St. | `contact.html` | Clients may go to the wrong place, and it weakens local trust. | Regenerate the embed from the correct Google Business Profile listing. |
@@ -85,3 +86,13 @@
 15. Run a review-collection routine, with a review request link sent after each job.
 16. Do the accessibility pass (menu ARIA, lightbox focus, keyboard gallery, focus styles).
 17. Move the header and footer into a shared template, and set up monthly maintenance and reporting.
+
+---
+
+## Status — Phase 1 applied (26 Nov 2026)
+
+The Phase 1 quick wins above, plus real photos and copy from the company profile, are applied on branch `claude/client-audit-proposal-ghv40s`. Still to confirm with the client:
+- Testimonial spelling ("Christian, Betafence") and permission to name KFC and Betafence.
+- Whether pressure washing is still offered.
+- Higher-resolution job photos. Two of the current photos are only about 250–350px wide.
+- The quote form sends requests through WhatsApp for now. It can be switched to a form service such as Formspree once there's an account.

@@ -1,43 +1,57 @@
+// Mark that JS is running, so reveal animations only hide content when they can also show it.
+document.documentElement.classList.add('js');
+
+const WHATSAPP_NUMBER = '27738449868';
+const BUSINESS_EMAIL = 'andremuller093@gmail.com';
+const FOUNDED_YEAR = 2009;
+
 const nav = document.querySelector('.nav');
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const backToTop = document.querySelector('.back-to-top');
-const loader = document.querySelector('.page-loader');
 const revealItems = document.querySelectorAll('.reveal');
 const counters = document.querySelectorAll('.counter');
 const sliderButtons = document.querySelectorAll('.slider-btn');
 const testimonialCards = document.querySelectorAll('.testimonial-card');
+const quoteForm = document.querySelector('.contact-form');
 
-const setNavState = () => {
-  if (nav) {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  }
+const onScroll = () => {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+  if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 600);
 };
 
-const revealOnScroll = () => {
-  revealItems.forEach((item) => {
-    const top = item.getBoundingClientRect().top;
-    if (top < window.innerHeight - 120) {
-      item.classList.add('visible');
-    }
-  });
+const initReveal = () => {
+  if (!('IntersectionObserver' in window)) {
+    revealItems.forEach((item) => item.classList.add('visible'));
+    return;
+  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '0px 0px -60px 0px' }
+  );
+  revealItems.forEach((item) => observer.observe(item));
 };
 
 const animateCounters = () => {
   counters.forEach((counter) => {
-    const target = Number(counter.dataset.target || 0);
+    const since = Number(counter.dataset.since || 0);
+    const target = since ? new Date().getFullYear() - since : Number(counter.dataset.target || 0);
+    const suffix = counter.dataset.suffix ?? '+';
     const duration = 1200;
     const startTime = performance.now();
 
     const tick = (time) => {
       const progress = Math.min((time - startTime) / duration, 1);
-      const value = Math.floor(progress * target);
-      counter.textContent = `${value}${target === 100 ? '%' : '+'}`;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        counter.textContent = `${target}${target === 100 ? '%' : '+'}`;
-      }
+      counter.textContent = `${Math.floor(progress * target)}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+      else counter.textContent = `${target}${suffix}`;
     };
 
     requestAnimationFrame(tick);
@@ -45,6 +59,7 @@ const animateCounters = () => {
 };
 
 const initTestimonials = () => {
+  if (!testimonialCards.length) return;
   let activeIndex = 0;
   const showCard = (index) => {
     testimonialCards.forEach((card, cardIndex) => {
@@ -64,44 +79,83 @@ const initTestimonials = () => {
 };
 
 const initMenu = () => {
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  }
+  if (!menuToggle || !navLinks) return;
+  const setOpen = (open) => {
+    navLinks.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  };
+  menuToggle.addEventListener('click', () => setOpen(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
 };
 
-const handleBackToTop = () => {
-  if (!backToTop) return;
-  backToTop.classList.toggle('visible', window.scrollY > 600);
+// Quote form: sends the request as a pre-filled WhatsApp message (no server needed),
+// and offers the same details by email as an alternative.
+const initQuoteForm = () => {
+  if (!quoteForm) return;
+  const status = quoteForm.querySelector('.form-status');
+  const emailLink = quoteForm.querySelector('.email-alt');
+
+  const buildMessage = () => {
+    const data = new FormData(quoteForm);
+    const fields = [
+      ['Name', 'name'],
+      ['Phone', 'phone'],
+      ['Email', 'email'],
+      ['Service', 'service'],
+      ['Property type', 'property'],
+      ['Area / suburb', 'area'],
+      ['How often', 'frequency'],
+      ['Preferred date', 'date'],
+    ];
+    const details = fields
+      .map(([label, key]) => [label, String(data.get(key) || '').trim()])
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`);
+    const message = String(data.get('message') || '').trim();
+    return ['Hi SNA Cleaning Services, I would like a quote.', '', ...details, ...(message ? ['', message] : [])].join('\n');
+  };
+
+  const updateEmailLink = () => {
+    if (!emailLink) return;
+    const subject = encodeURIComponent('Quote request – SNA Cleaning Services');
+    emailLink.href = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${encodeURIComponent(buildMessage())}`;
+  };
+
+  quoteForm.addEventListener('input', updateEmailLink);
+  updateEmailLink();
+
+  quoteForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!quoteForm.reportValidity()) return;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`;
+    window.open(url, '_blank', 'noopener');
+    if (status) {
+      status.textContent = 'Thank you! WhatsApp has opened with your request — just press send.';
+    }
+  });
 };
 
-const initLoader = () => {
-  if (loader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => loader.classList.add('hidden'), 400);
-    });
-  }
-};
+window.addEventListener('scroll', onScroll, { passive: true });
 
-window.addEventListener('scroll', () => {
-  setNavState();
-  revealOnScroll();
-  handleBackToTop();
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-  setNavState();
-  revealOnScroll();
-  handleBackToTop();
-  initLoader();
+const init = () => {
+  onScroll();
+  initReveal();
   initMenu();
   initTestimonials();
-  if (counters.length) {
-    animateCounters();
-  }
-});
+  initQuoteForm();
+  if (counters.length) animateCounters();
+  document.querySelectorAll('.current-year').forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 
 backToTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+

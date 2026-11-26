@@ -23,20 +23,18 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="page-loader" aria-hidden="true">
-      <div class="loader-ring"></div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="hero hero-subpage">
       <nav class="nav">
         <div class="container">
           <a class="logo" href="index.html"><img src="images/logos/1.png" alt="SNA Cleaning Services Logo" /></a>
-          <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
-          <ul class="nav-links">
+          <ul class="nav-links" id="site-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
@@ -48,12 +46,12 @@
 
       <div class="container page-hero">
         <p class="eyebrow">Contact</p>
-        <h1>Start your premium cleaning experience.</h1>
-        <p>Tell us about your property and we will arrange a tailored service plan with care.</p>
+        <h1>Get a free cleaning quote.</h1>
+        <p>Tell us about your property and we'll get back to you with a quote.</p>
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section section-light">
         <div class="container contact-grid reveal">
           <div class="contact-card">
@@ -68,33 +66,91 @@
               <li><strong>Business Hours:</strong> Mon–Sat, 7:00–18:00</li>
             </ul>
             <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13272.617853681173!2d18.95746930093441!3d-33.73082172872952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcda82481247001%3A0x2ff6e4d4ff7faf86!2s70%20Lady%20Grey%20St%2C%20Lemoenkloof%2C%20Paarl%2C%207646!5e0!3m2!1sen!2sza!4v1783974869906!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <iframe
+                title="Map showing SNA Cleaning Services, Millree Court, Lady Grey Street, Paarl"
+                src="https://maps.google.com/maps?q=Millree%20Court%2C%20Lady%20Grey%20Street%2C%20Paarl%2C%207646&z=16&output=embed"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
             </div>
+          </div>
           </div>
 
           <form class="contact-form">
-            <div class="form-field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
+            <div>
+              <p class="eyebrow eyebrow-dark">Free quote</p>
+              <h2>Tell us what you need.</h2>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name *</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone / WhatsApp *</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. 082 123 4567" required />
+              </div>
             </div>
             <div class="form-field">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="service">Service needed *</label>
+                <select id="service" name="service" required>
+                  <option value="" selected disabled>Choose a service</option>
+                  <option>Contract / Office Cleaning</option>
+                  <option>Commercial Cleaning</option>
+                  <option>Residential Cleaning</option>
+                  <option>Deep Cleaning</option>
+                  <option>Window Cleaning</option>
+                  <option>Carpet / Upholstery / Mattress</option>
+                  <option>Sani-Bins &amp; Hygiene</option>
+                  <option>Other / Ad-hoc</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="property">Property type</label>
+                <select id="property" name="property">
+                  <option value="" selected>Choose one</option>
+                  <option>House</option>
+                  <option>Flat / Town house</option>
+                  <option>Office</option>
+                  <option>School</option>
+                  <option>Shop / Retail</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="area">Area / suburb *</label>
+                <input id="area" name="area" type="text" placeholder="e.g. Paarl, Wellington" required />
+              </div>
+              <div class="form-field">
+                <label for="frequency">How often?</label>
+                <select id="frequency" name="frequency">
+                  <option value="" selected>Choose one</option>
+                  <option>Once-off</option>
+                  <option>Weekly</option>
+                  <option>Every two weeks</option>
+                  <option>Monthly</option>
+                  <option>Daily / contract</option>
+                </select>
+              </div>
             </div>
             <div class="form-field">
-              <label for="service">Service Needed</label>
-              <select id="service" name="service">
-                <option>Residential Cleaning</option>
-                <option>Commercial Cleaning</option>
-                <option>Deep Cleaning</option>
-                <option>Window Cleaning</option>
-              </select>
+              <label for="date">Preferred start date</label>
+              <input id="date" name="date" type="date" />
             </div>
             <div class="form-field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your property and preferred schedule"></textarea>
+              <label for="message">Anything else?</label>
+              <textarea id="message" name="message" placeholder="Size of the property, number of rooms, special requests…"></textarea>
             </div>
-            <button class="btn btn-primary" type="submit" > <a href="mailto:andremuller093@gmail.com">andremuller093@gmail.com</a></li></button>
+            <button class="btn btn-primary" type="submit">Send request via WhatsApp</button>
+            <p class="form-note">Prefer email? <a class="email-alt" href="mailto:andremuller093@gmail.com">Send these details by email instead</a>.</p>
+            <p class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -118,25 +174,32 @@
         <div>
           <h3>Services</h3>
           <ul class="footer-links">
+            <li>Contract &amp; Office Cleaning</li>
             <li>Commercial Cleaning</li>
             <li>Residential Cleaning</li>
             <li>Deep Cleaning</li>
-            <li>Upholstery Cleaning</li>
+            <li>Window Cleaning</li>
+            <li>Carpet &amp; Upholstery Cleaning</li>
           </ul>
         </div>
         <div>
           <h3>Contact</h3>
           <ul class="footer-links">
-            <li><a href="https://wa.me/27738449868">073 844 9868(WhatsApp)</a></li>
+            <li><a href="https://wa.me/27738449868">073 844 9868 (WhatsApp)</a></li>
             <li><a href="mailto:andremuller093@gmail.com">andremuller093@gmail.com</a></li>
             <li>No. 06 Millree Court, Lady Grey Street, Paarl, Western Cape, South Africa</li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© 2026 SNA Cleaning Services. All rights reserved.</p>
+        <p>© <span class="current-year">2026</span> SNA Cleaning Services. All rights reserved.</p>
       </div>
     </footer>
+
+    <nav class="mobile-cta" aria-label="Quick contact">
+      <a class="whatsapp" href="https://wa.me/27738449868">WhatsApp us</a>
+      <a href="tel:+27738449868">Call now</a>
+    </nav>
 
     <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="View examples of SNA Cleaning Services’ premium residential and commercial cleaning work."
+      content="Photos of SNA Cleaning Services teams at work in schools, offices and homes across Paarl and the Western Cape."
     />
     <meta name="title" content="SNA Cleaning Services | Gallery" />
     <meta property="og:title" content="SNA Cleaning Services | Gallery" />
@@ -23,20 +23,18 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="page-loader" aria-hidden="true">
-      <div class="loader-ring"></div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="hero hero-subpage">
       <nav class="nav">
         <div class="container">
           <a class="logo" href="index.html"><img src="images/logos/1.png" alt="SNA Cleaning Services Logo" /></a>
-          <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
-          <ul class="nav-links">
+          <ul class="nav-links" id="site-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
@@ -48,38 +46,35 @@
 
       <div class="container page-hero">
         <p class="eyebrow">Gallery</p>
-        <h1>A visual snapshot of our work.</h1>
-        <p>See the standard of workmanship we bring to clean, refined, and welcoming spaces.</p>
+        <h1>Our teams at work.</h1>
+        <p>Real photos from SNA jobs. More before-and-after photos coming soon.</p>
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section section-light">
         <div class="container">
           <div class="gallery-controls reveal" aria-label="Gallery filters">
-            <button class="filter-btn active" type="button" data-filter="all">All</button>
-            <button class="filter-btn" type="button" data-filter="commercial">Commercial</button>
-            <button class="filter-btn" type="button" data-filter="residential">Residential</button>
-            <button class="filter-btn" type="button" data-filter="deep">Deep Cleaning</button>
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="work" aria-pressed="false">On the job</button>
+            <button class="filter-btn" type="button" data-filter="team" aria-pressed="false">Our team</button>
           </div>
           <div class="gallery-grid reveal">
-            <figure class="gallery-item" data-category="commercial">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Clean modern office interior" />
+            <figure class="gallery-item" data-category="work">
+              <img loading="lazy" src="images/work/classroom-sanitising.jpg" width="1072" height="690" alt="SNA team sanitising a school classroom in protective suits" />
+              <figcaption>School classroom sanitising</figcaption>
             </figure>
-            <figure class="gallery-item" data-category="residential">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Freshly cleaned luxury kitchen" />
+            <figure class="gallery-item" data-category="work">
+              <img loading="lazy" src="images/work/wall-cleaning.jpg" width="356" height="538" alt="SNA cleaner wiping down a wall and skirting" />
+              <figcaption>Detail cleaning</figcaption>
             </figure>
-            <figure class="gallery-item" data-category="deep">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80" alt="Luxury bathroom after deep cleaning" />
+            <figure class="gallery-item" data-category="work">
+              <img loading="lazy" src="images/work/chair-cleaning.jpg" width="252" height="375" alt="SNA cleaner cleaning office chairs" />
+              <figcaption>Office furniture cleaning</figcaption>
             </figure>
-            <figure class="gallery-item" data-category="commercial">
-              <img loading="lazy" src="images/gallery/1.png" alt="Professional office cleaning result" />
-            </figure>
-            <figure class="gallery-item" data-category="residential">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80" alt="Well-appointed living room after residential cleaning" />
-            </figure>
-            <figure class="gallery-item" data-category="deep">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80" alt="Pristine reception and lounge area" />
+            <figure class="gallery-item" data-category="team">
+              <img loading="lazy" src="images/work/sna-team.jpg" width="604" height="534" alt="Three SNA Cleaning Services team members in branded uniforms" />
+              <figcaption>The SNA team</figcaption>
             </figure>
           </div>
         </div>
@@ -111,25 +106,32 @@
         <div>
           <h3>Services</h3>
           <ul class="footer-links">
+            <li>Contract &amp; Office Cleaning</li>
             <li>Commercial Cleaning</li>
             <li>Residential Cleaning</li>
             <li>Deep Cleaning</li>
-            <li>Pressure Washing</li>
+            <li>Window Cleaning</li>
+            <li>Carpet &amp; Upholstery Cleaning</li>
           </ul>
         </div>
         <div>
           <h3>Contact</h3>
           <ul class="footer-links">
-            <li><a href="https://wa.me/27738449868">073 844 9868(WhatsApp)</a></li>
+            <li><a href="https://wa.me/27738449868">073 844 9868 (WhatsApp)</a></li>
             <li><a href="mailto:andremuller093@gmail.com">andremuller093@gmail.com</a></li>
             <li>No. 06 Millree Court, Lady Grey Street, Paarl, Western Cape, South Africa</li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© 2026 SNA Cleaning Services. All rights reserved.</p>
+        <p>© <span class="current-year">2026</span> SNA Cleaning Services. All rights reserved.</p>
       </div>
     </footer>
+
+    <nav class="mobile-cta" aria-label="Quick contact">
+      <a class="whatsapp" href="https://wa.me/27738449868">WhatsApp us</a>
+      <a href="tel:+27738449868">Call now</a>
+    </nav>
 
     <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Learn about SNA Cleaning Services, a trusted Paarl cleaning company with over 16 years of experience in premium residential and commercial cleaning."
+      content="SNA Cleaning Services is a Paarl cleaning company established in 2009, with 38 trained staff serving homes, businesses, schools and government across the Western Cape."
     />
     <meta name="title" content="About SNA Cleaning Services" />
     <meta property="og:title" content="About SNA Cleaning Services" />
@@ -23,9 +23,7 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="page-loader" aria-hidden="true">
-      <div class="loader-ring"></div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="hero hero-subpage">
       <nav class="nav">
@@ -33,12 +31,12 @@
           <a class="logo" href="index.html">
             <img src="images/logos/1.png" alt="SNA Cleaning Services Logo" />
           </a>
-          <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
-          <ul class="nav-links">
+          <ul class="nav-links" id="site-menu">
             <li><a href="index.html">Home</a></li>
             <li><a class="active" href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
@@ -58,28 +56,29 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section section-light">
         <div class="container about-grid reveal">
           <div>
             <p class="eyebrow eyebrow-dark">Our story</p>
-            <h2>Premium cleaning with a personal touch.</h2>
+            <h2>Cleaning for all business — and your home.</h2>
             <p>
-              SNA Cleaning Services has served homes and businesses across Paarl and the
-              broader Western Cape since 2009. Our approach is simple: combine professional
-              standards with thoughtful hospitality and meticulous execution.<br>
-              The founder and sole shareholder of the company is Andrè Wesley Muller. 
-              We are a micro business that employs thirty eight (38) staff  members currently. 
-              The main objective of our company is to make sure that town houses, flats, 
-              private houses, offices, schools etc. are clean and tidy to meet the criteria of genuine,
-              hygienic and healthy environment, to ensure our client satisfaction at all times.
+              SNA Cleaning Services is a registered company, established in April 2009 by
+              founder and sole shareholder Andrè Wesley Muller. From our base in Paarl, we
+              serve clients across the Cape Winelands and the broader Western Cape.
+            </p>
             <p>
-              From boutique residences to busy commercial offices, we bring organisation,
-              consistency, and a calm presence to every visit.
+              We are a micro business with 38 trained staff and more than 467 clients served
+              to date. Our goal is simple: to keep town houses, flats, private homes, offices
+              and schools clean, hygienic and healthy, so our clients are satisfied every time.
+            </p>
+            <p>
+              We believe no two clients' needs are exactly the same. That's why we treat our
+              clients as partners and give special attention to what each of them needs.
             </p>
           </div>
           <div class="about-card">
-            <img loading="lazy" src="images/team/1.png" alt="Professional cleaners preparing a luxury office space" />
+            <img loading="lazy" src="images/work/sna-team.jpg" width="604" height="534" alt="Three SNA Cleaning Services team members in branded uniforms" />
           </div>
         </div>
       </section>
@@ -89,19 +88,30 @@
           <div class="section-heading reveal">
             <div>
               <p class="eyebrow">Core values</p>
-              <h2>The principles behind every service.</h2>
+              <h2>Vision, mission and values.</h2>
             </div>
           </div>
           <div class="value-grid reveal">
             <article class="value-card">
-              <h3>Mission</h3>
-              <p>To be one of the best reputable cleaning company in the Western Cape,  
-                To identify, anticipate and supply customer requirements To represent and articulate the aspiration of all targeted companies.
-                <br> To empower and motivate our employees with training and employment. </p>
-            </article> 
-            <article class="value-card">
               <h3>Vision</h3>
-              <p>To be the best cleaning company of choice.</p>
+              <p>To be the cleaning company of choice.</p>
+            </article>
+            <article class="value-card">
+              <h3>Mission</h3>
+              <ul>
+                <li>To be one of the most reputable cleaning companies in the Western Cape.</li>
+                <li>To identify, anticipate and meet our customers' requirements.</li>
+                <li>To empower and motivate our employees through training and employment.</li>
+              </ul>
+            </article>
+            <article class="value-card">
+              <h3>Our Values</h3>
+              <ul>
+                <li>Mutual respect for all persons.</li>
+                <li>Transparency and honesty in all dealings.</li>
+                <li>The highest ethical standards in our business relationships.</li>
+                <li>Customer care and respect at all times.</li>
+              </ul>
             </article>
             <article class="value-card">
               <h3>Integrity</h3>
@@ -129,16 +139,16 @@
           </div>
           <div class="service-grid reveal">
             <article class="service-card">
-              <h3>Vetted Teams</h3>
-              <p>Every cleaning professional is selected for trustworthiness, skill, and presentation.</p>
+              <h3>Experienced Teams</h3>
+              <p>Our staff bring more than 30 years of combined cleaning experience, working under on-site supervision.</p>
             </article>
             <article class="service-card">
               <h3>Tailored Plans</h3>
               <p>Custom cleaning programmes for homes, offices, and facilities of all sizes.</p>
             </article>
             <article class="service-card">
-              <h3>Premium Finish</h3>
-              <p>We elevate everyday spaces through careful execution and refined service standards.</p>
+              <h3>Affordable &amp; Flexible</h3>
+              <p>Competitive pricing and scheduling that fits you, including after hours and weekends.</p>
             </article>
           </div>
         </div>
@@ -163,25 +173,32 @@
         <div>
           <h3>Services</h3>
           <ul class="footer-links">
+            <li>Contract &amp; Office Cleaning</li>
             <li>Commercial Cleaning</li>
             <li>Residential Cleaning</li>
+            <li>Deep Cleaning</li>
             <li>Window Cleaning</li>
-            <li>Pressure Washing</li>
+            <li>Carpet &amp; Upholstery Cleaning</li>
           </ul>
         </div>
         <div>
           <h3>Contact</h3>
-                <ul class="footer-links">
-                    <li><a href="https://wa.me/27738449868">073 844 9868(WhatsApp)</a></li>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/27738449868">073 844 9868 (WhatsApp)</a></li>
             <li><a href="mailto:andremuller093@gmail.com">andremuller093@gmail.com</a></li>
             <li>No. 06 Millree Court, Lady Grey Street, Paarl, Western Cape, South Africa</li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© 2026 SNA Cleaning Services. All rights reserved.</p>
+        <p>© <span class="current-year">2026</span> SNA Cleaning Services. All rights reserved.</p>
       </div>
     </footer>
+
+    <nav class="mobile-cta" aria-label="Quick contact">
+      <a class="whatsapp" href="https://wa.me/27738449868">WhatsApp us</a>
+      <a href="tel:+27738449868">Call now</a>
+    </nav>
 
     <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
